@@ -31,7 +31,12 @@ namespace WebBase.Models
 
         public bool Equals(object obj)
         {
-            if (obj is null || GetType() != obj.GetType()) return false;
+            if (obj is null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            return this.GetHashCode() == obj.GetHashCode();
         }
 
         public ModelBase(int id, DateTime createdAt, DateTime updatedAt)
