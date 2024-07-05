@@ -86,7 +86,7 @@ namespace WebBase.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Nome,CodigoBacen,Id,CreatedAt,UpdatedAt")] Pais pais)
+        public async Task<IActionResult> Edit(int id, [Bind("Nome,CodigoBacen,Id,UpdatedAt")] Pais pais)
         {
             if (id != pais.Id)
             {
@@ -97,6 +97,7 @@ namespace WebBase.Controllers
             {
                 try
                 {
+                    pais.UpdatedAt = DateTime.Now;
                     _context.Update(pais);
                     await _context.SaveChangesAsync();
                 }
