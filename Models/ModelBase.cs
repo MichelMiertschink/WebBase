@@ -20,8 +20,8 @@ namespace WebBase.Models
         {
             if (CreatedAt == new DateTime())
                 CreatedAt = DateTime.Now;
-            UpdatedAt = DateTime.Now;
         }
+
         [NotMapped]
         public object Key
         {
